@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <ul class="form-group" id="MessagesListUl" style="margin-bottom:20px"></ul>
+
+    <form>
+        <div class="form-group">
+            <label for="username">姓名:</label>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="msgcontent">内容:</label>
+            <textarea rows="5" cols="20" id="msgcontent" name="msgcontent" class="form-control"></textarea>
+        </div>
+        <input type="button" onclick="btnSendMsg()" value="发送">
+    </form>
+
+    <script src="/lib/jquery.js"></script>
+    <script src="/lib/signalr.js"></script>
+    <script type="text/javascript">
+    //创建连接对象connection
+    const signalr_connection = new signalR.HubConnectionBuilder()
+        .withUrl("/ChatHub")
+                .configureLogging(signalR.LogLevel.Information)
+                .build();
+
+    //启动connection
+    signalr_connection.start()
+                        .then(function(){
+                            console.log("连接成功");
+                        }).catch(function(ex){
+                            console.log("连接失败"+ex);
+                            //SignalR JavaScript 客户端不会自动重新连接，必须编写代码将手动重新连接你的客户端
+                            setTimeout(() => start(), 5000);
+                        });
+
+    async function start() {
+        try {
+            await signalr_connection.start();
+            console.log("connected");
+        } catch (err) {
+            console.log(err);
+            setTimeout(() => start(), 5000);
+        }
+    };
+
+    signalr_connection.onclose(async () => {
+        start();
+    });
+
+
+    //绑定事件("ReceiveMessage"和服务器端的SendMessage方法中的第一个参数一致)
+    signalr_connection.on("ReceiveMessage", function(data) {
+        var msgObj = JSON.parse(data);//json串转对象
+        const li = document.createElement("li");
+        li.textContent = msgObj.name + " : " + msgObj.message;
+        document.getElementById("MessagesListUl").appendChild(li);
+    });
+
+    //发送消息
+    function btnSendMsg(){
+        var username = $.trim($("#username").val());
+        var msgcontent = $.trim($("#msgcontent").val());
+        var msgObj={};
+        msgObj.name=username;
+        msgObj.message=msgcontent;
+        var jsonstr=JSON.stringify(msgObj);//对象转json串
+        console.log(jsonstr);
+        signalr_connection.invoke("SendMessage", jsonstr).catch(err => console.error("发送失败："+err.toString()));
+    }</script>
+
+</body>
+</html>

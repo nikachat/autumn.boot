@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MiniProfiler.AspNetCore.Mvc" Version="4.0.138" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Autumn.FrameWork\Autumn.FrameWork.csproj" />
+    <ProjectReference Include="..\Autumn.IRepository\Autumn.IRepository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SqlDbLite">
+      <HintPath>..\Autumn.FrameWork\Dll\netstandard2.0\SqlDbLite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

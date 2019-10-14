@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="lib/jquery.js"></script>
+    <script>$(document).ready(function(){
+
+            $("button.post").click(function(){
+                $.post("http://localhost:8081/api/demo/Apost",{
+                    },
+                    function(data,status){
+                        alert("数据: \n" + data + "\n状态: " + status);
+                    });
+
+
+
+
+                //$.post({
+                //    url: 'http://localhost:8081/api/demo/Apost',
+                //    data: {
+                       
+                //    },
+                //    dataType: "json",
+                //    complete: function (xhr, status) {
+                //        //此处判断是否需要重定向
+                //        var REDIRECT = xhr.getResponseHeader("REDIRECT");
+                //        if (REDIRECT == "redirect") {
+                //            var win = window;
+                //            while (win != win.top) {
+                //                win = win.top;
+                //            }
+                //            //重新跳转到 login.html
+                //            win.location.href = xhr.getResponseHeader("redirectUrl");
+                //        }
+                //    },
+                //    success: function (data) {
+                //        if ('${Constants.REQUEST_STATUS_SUCCESS}' == data.returnCode) {
+                //            window.location.href = "${ctx}/kbApp/index.html?token=" + token;
+                //            var randomStr = makeTimeRandomStr(5);
+                //            // localStorage.setItem("loginKey",randomStr);
+                //        } else {
+                //            popupTips(data.returnMessage);
+                //        }
+                //    }
+                //});
+
+            })
+        });</script>
+</head>
+<body>
+
+    <button class="post">发送一个 HTTP POST 请求页面并获取返回内容</button>
+    </body>
+</html>

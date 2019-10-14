@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <OutputPath></OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Autumn.FrameWork\Autumn.FrameWork.csproj" />
+    <ProjectReference Include="..\Autumn.IRepository\Autumn.IRepository.csproj" />
+    <ProjectReference Include="..\Autumn.IServices\Autumn.IServices.csproj" />
+    <ProjectReference Include="..\Autumn.Model\Autumn.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="SqlDbLite">
+      <HintPath>..\Autumn.FrameWork\Dll\netstandard2.0\SqlDbLite.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

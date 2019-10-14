@@ -1,0 +1,124 @@
+﻿//如果要获取主机信息，记得把 hostspecific 设置成true
+<#@ template debug="true" hostspecific="True" language="C#" #>
+<#@ output extension=".cs" #>
+
+//导入命名空间组件
+<#@ assembly name="System.Data" #>
+<#@ assembly name="System.xml" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Data" #>
+<#@ assembly name="System.Core.dll" #>
+<#@ assembly name="System.Data.DataSetExtensions.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Xml" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+
+//引入我们的公共模板文件
+<#@ include file="$(ProjectDir)MsSqlDbHelper.ttinclude"  #>
+<#@ include file="$(ProjectDir)ModelAuto.ttinclude"	#>
+
+//定义我们的输出文件夹
+<# 
+    //var OutputPath1 = Host.ResolveAssemblyReference("$(SolutionDir)") +"\\Autumn.Model\\EntityModels\\MsSql\\";
+	var OutputPath1 = Path.GetDirectoryName(Host.TemplateFile)+"\\Entities";
+	if (!Directory.Exists(OutputPath1))
+	{
+	    Directory.CreateDirectory(OutputPath1);
+	}
+
+	 var manager = new Manager(Host, GenerationEnvironment, true) { OutputPath = OutputPath1 }; 
+#>
+
+//-----------------------------------------------------------------------------
+//此代码由T4模板自动生成 By Jim
+//生成时间 <#=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")#> 
+//对此文件的更改可能会导致不正确的行为，并且如果重新生成代码，这些更改将会丢失。
+//-----------------------------------------------------------------------------
+<# 
+	var tableName=config.TableName;//获取config配置中的表名，为单一生产使用
+ #>
+<# 
+if(tableName!=""){//如果表名有值，表示是生成单一文件
+    #>  
+using System;
+namespace Autumn.FrameWork
+{	
+	/// <summary>
+	/// <#=tableName#>
+	/// </summary>
+	[Serializable]
+	public partial class <#=tableName+" :BaseEntity"#>
+	{
+	//将全部字段遍历出来
+<# foreach(DbColumn column in DbHelper.GetDbColumns(config.ConnectionString, config.DbDatabase, config.TableName)){#>
+	/// <summary>
+	/// <#= column.Remark#>
+	/// </summary>
+	[DbLiteColumn(IsPrimaryKey=<#=column.IsPrimaryKey.ToString().ToLower()#>, IsIdentity=<#=column.IsIdentity.ToString().ToLower()#>, IsNullable=<#=column.IsNullable.ToString().ToLower()#><# if(column.CSharpType=="string") {#>, Length=<#=column.CharLength#><#}#>)]
+	public <#= column.CSharpType#> <# if(column.CommonType.IsValueType && column.IsNullable){#> ?<#}#> <#=column.ColumnName #> { get; set; }
+<#}#> 
+    }
+}
+//如果为空，表示要将整个数据库都生成出来
+<# 
+    } else{ 
+	#>
+<# 
+	List<DbTable> lstTable = DbHelper.GetDbTables(config.ConnectionString, config.DbDatabase);
+    SqlConnection conn = new SqlConnection(config.ConnectionString); 
+    conn.Open(); 
+    System.Data.DataTable schema = conn.GetSchema("TABLES"); 
+ #>
+<# 
+    foreach(System.Data.DataRow row in schema.Rows) 
+    {     
+
+	string Description ="";
+	foreach(DbTable dbt in lstTable)
+	{
+		if(dbt.TableName==row["TABLE_NAME"].ToString())
+		Description =dbt.TableDescription;
+	}
+
+	#>
+
+	//开始启动block块，参数是实体类文件名
+    <# 
+		manager.StartBlock(row["TABLE_NAME"]+".cs");
+	 #>
+//-----------------------------------------------------------------------------
+//此代码由T4模板自动生成 By Jim
+//生成时间 <#=DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")#> 
+//对此文件的更改可能会导致不正确的行为，并且如果重新生成代码，这些更改将会丢失。
+//-----------------------------------------------------------------------------
+using System;
+using SqlDbLite;
+
+namespace Autumn.FrameWork
+{	
+	/// <summary>
+	/// <#=Description#>
+	/// </summary>
+	[Serializable]
+	public partial class <#=row["TABLE_NAME"].ToString()+" :BaseEntity"#>
+	{
+<# foreach(DbColumn column in DbHelper.GetDbColumns(config.ConnectionString, config.DbDatabase, row["TABLE_NAME"].ToString() )){ #>
+	/// <summary>
+	/// <#=column.Remark#>
+	/// </summary>
+	[DbLiteColumn(IsPrimaryKey=<#=column.IsPrimaryKey.ToString().ToLower()#>, IsIdentity=<#=column.IsIdentity.ToString().ToLower()#>, IsNullable=<#=column.IsNullable.ToString().ToLower()#><# if(column.CSharpType=="string") {#>, Length=<#=column.CharLength#><#}#>)]
+	public <#= column.CSharpType#> <# if(column.CommonType.IsValueType && column.IsNullable){#> ?<#}#> <#=column.ColumnName #> { get; set; }
+
+<#}#> 
+    }
+}
+	<# 
+		manager.EndBlock(); 
+		} 
+		manager.Process(true);
+	}
+	#> 
+

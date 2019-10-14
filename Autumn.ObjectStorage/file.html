@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="/lib/jquery.js"></script>
+    <title></title>
+</head>
+<body>
+    <input type="text" name="Name" value="123" />
+    <input type="file" id="fileUpload" name="fileUpload" multiple />
+    <input id="upload" type="button" value="ajax 提交" />
+</body>
+</html>
+<script type="text/javascript">
+    $(function () {
+        $("#upload").click(function (evt) {
+            ///取选择的文件加入FormData中
+            var fileUpload = $("#fileUpload").get(0);
+            var files = fileUpload.files;
+            var data = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                data.append(files[i].name, files[i]);
+            }
+            // data.append("Name", $('input[name="Name"]').val())
+            $.ajax({
+                type: "POST",
+                url: "http://192.168.0.175:8095/api/file/upload",
+                contentType: false,
+                processData: false,
+                data: data,
+                success: function (message) {
+                    alert(message);
+                },
+                error: function () {
+                    alert("上传文件出现错误！");
+                }
+            });
+        });
+    });
+</script>
