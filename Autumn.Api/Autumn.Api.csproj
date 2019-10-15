@@ -85,6 +85,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="wwwroot\img\Autumn1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\img\Autumn2.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Autumn.Api.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
