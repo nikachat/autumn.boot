@@ -3,4 +3,10 @@
 
 一、基础架构功能简介
 
+![Image text](https://github.com/rockmyid/autumn.api/blob/master/Autumn.Api/wwwroot/img/Autumn1.jpg)
+
 二、业务架构功能简介
+
+![Image text](https://github.com/rockmyid/autumn.api/blob/master/Autumn.Api/wwwroot/img/Autumn2.jpg)
+
+(以上灰色部分为后期计划开发内容)
