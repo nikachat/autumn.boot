@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Autumn.Common\Autumn.Common.csproj" />
+    <ProjectReference Include="..\Autumn.SqlDbLite\Autumn.SqlDbLite.csproj" />
   </ItemGroup>
 
   <ItemGroup>
