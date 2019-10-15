@@ -1,2 +1,1 @@
-# autumn.core
-.NetCore Framework
+# autumn.api
