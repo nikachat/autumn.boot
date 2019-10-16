@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using AspNetCoreRateLimit;
 using Autumn.Common;
 using Autumn.FrameWork;
@@ -14,9 +15,9 @@ namespace Autumn
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            CreateWebHostBuilder(args, config).Build().Run();
             // 生成承载 web 应用程序的 Microsoft.AspNetCore.Hosting.IWebHost
-            var host = CreateWebHostBuilder(args).Build();
+            var host = CreateWebHostBuilder(args, config).Build();
 
             // 创建可用于解析作用域的服务
             using (var scope = host.Services.CreateScope())
@@ -55,11 +56,11 @@ namespace Autumn
             host.Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args, IConfiguration config) =>
             //使用预配置的默认值初始化
             WebHost.CreateDefaultBuilder(args)
-                //指定要由 web 主机使用的启动类型
-                //.UseUrls("http://localhost:6671")
+                 //指定要由 web 主机使用的启动类型
+                 //.UseUrls("http://localhost:6671")
                 .UseStartup<Startup>();
     }
 }
