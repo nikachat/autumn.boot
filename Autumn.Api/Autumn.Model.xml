@@ -4,6 +4,41 @@
         <name>Autumn.Model</name>
     </assembly>
     <members>
+        <member name="T:Autumn.Model.ConsulModel">
+            <summary>
+            服务治理
+            </summary>
+        </member>
+        <member name="P:Autumn.Model.ConsulModel.Ip">
+            <summary>
+            Ip地址
+            </summary>
+        </member>
+        <member name="P:Autumn.Model.ConsulModel.Port">
+            <summary>
+            端口
+            </summary>
+        </member>
+        <member name="T:Autumn.Model.HealthModel">
+            <summary>
+            心跳
+            </summary>
+        </member>
+        <member name="P:Autumn.Model.HealthModel.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Autumn.Model.HealthModel.Ip">
+            <summary>
+            Ip地址
+            </summary>
+        </member>
+        <member name="P:Autumn.Model.HealthModel.Port">
+            <summary>
+            端口
+            </summary>
+        </member>
         <member name="T:Autumn.Model.LoginModel">
             <summary>
             登录

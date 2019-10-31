@@ -44,6 +44,8 @@ using Autumn.Middlewares;
 using Autumn.Attributes;
 using Autumn.Api.Attributes;
 using EasyOffice;
+using Autumn.Model;
+using Autumn.Api.Extension;
 
 namespace Autumn
 {
@@ -404,7 +406,7 @@ namespace Autumn
             return new AutofacServiceProvider(ApplicationContainer);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IHttpContextAccessor accessor)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory, IHttpContextAccessor accessor, IApplicationLifetime lifetime)
         {
             #region Environment
             if (env.IsDevelopment())
@@ -420,7 +422,24 @@ namespace Autumn
                 //app.UseHsts();
             }
             #endregion
-            
+
+            #region Consul
+            ConsulModel consulModel = new ConsulModel()
+            {
+                Ip = Configuration["Consul:IP"],
+                Port = Convert.ToInt32(Configuration["Consul:Port"])
+            };
+
+            HealthModel healthModel = new HealthModel()
+            {
+                Ip = Configuration["Service:IP"],
+                Port = Convert.ToInt32(Configuration["Service:Port"]),
+                Name = Configuration["Service:Name"],
+            };
+
+            app.RegisterConsul(lifetime, healthModel, consulModel);
+            #endregion
+
             #region HttpContext
             HttpAccessor._Accessor = accessor;
             #endregion

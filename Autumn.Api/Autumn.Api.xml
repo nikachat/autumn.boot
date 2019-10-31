@@ -193,6 +193,17 @@
             构造
             </summary>
         </member>
+        <member name="T:Autumn.Api.Controllers.HealthController">
+            <summary>
+            健康检查
+            </summary>
+        </member>
+        <member name="M:Autumn.Api.Controllers.HealthController.Get">
+            <summary>
+            健康检查
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Autumn.Api.Controllers.NotifyController">
             <summary>
             通知
@@ -412,6 +423,21 @@
             </summary>
             <param name="bill_date"></param>
             <param name="account_type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.Api.Extension.ConsulManager">
+            <summary>
+            服务治理
+            </summary>
+        </member>
+        <member name="M:Autumn.Api.Extension.ConsulManager.RegisterConsul(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IApplicationLifetime,Autumn.Model.HealthModel,Autumn.Model.ConsulModel)">
+            <summary>
+            服务注册
+            </summary>
+            <param name="app"></param>
+            <param name="lifetime"></param>
+            <param name="healthService"></param>
+            <param name="consulService"></param>
             <returns></returns>
         </member>
         <member name="M:Autumn.AuthHelper.Auth.JwtHelper.IssueJwt(Autumn.AuthHelper.Auth.JwtTokenModel)">

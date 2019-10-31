@@ -13,9 +13,6 @@
     <Reference Include="mscorlib">
       <HintPath>mscorlib</HintPath>
     </Reference>
-    <Reference Include="SqlDbLite">
-      <HintPath>Dll\netstandard2.0\SqlDbLite.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <HintPath>System</HintPath>
     </Reference>

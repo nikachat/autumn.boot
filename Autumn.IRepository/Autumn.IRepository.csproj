@@ -8,10 +8,4 @@
     <ProjectReference Include="..\Autumn.FrameWork\Autumn.FrameWork.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="SqlDbLite">
-      <HintPath>..\Autumn.FrameWork\Dll\netstandard2.0\SqlDbLite.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
