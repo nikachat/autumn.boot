@@ -424,20 +424,20 @@ namespace Autumn
             #endregion
 
             #region Consul
-            ConsulModel consulModel = new ConsulModel()
-            {
-                Ip = Configuration["Consul:IP"],
-                Port = Convert.ToInt32(Configuration["Consul:Port"])
-            };
+            //ConsulModel consulModel = new ConsulModel()
+            //{
+            //    Ip = Configuration["Consul:IP"],
+            //    Port = Convert.ToInt32(Configuration["Consul:Port"])
+            //};
 
-            HealthModel healthModel = new HealthModel()
-            {
-                Ip = Configuration["Service:IP"],
-                Port = Convert.ToInt32(Configuration["Service:Port"]),
-                Name = Configuration["Service:Name"],
-            };
+            //HealthModel healthModel = new HealthModel()
+            //{
+            //    Ip = Configuration["Service:IP"],
+            //    Port = Convert.ToInt32(Configuration["Service:Port"]),
+            //    Name = Configuration["Service:Name"],
+            //};
 
-            app.RegisterConsul(lifetime, healthModel, consulModel);
+            //app.RegisterConsul(lifetime, healthModel, consulModel);
             #endregion
 
             #region HttpContext
