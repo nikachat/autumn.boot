@@ -168,7 +168,7 @@ namespace Autumn
                         Title = $"{Def.ApiName} 接口文档",
                         Description = $"{Def.ApiName} " + version,
                         TermsOfService = "None",
-                        Contact = new Contact { Name = Def.ApiName, Email = "Autumn@xxx.com", Url = "https://www.hydsoft.com/" }
+                        Contact = new Contact { Name = Def.ApiName, Email = "Autumn@xxx.com", Url = "https://www.xxxxxx.com/" }
                     });
                     // 按相对路径排序
                     c.OrderActionsBy(o => o.RelativePath);

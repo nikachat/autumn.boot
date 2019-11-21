@@ -13,9 +13,10 @@
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "SkyAPM.Agent.AspNetCore"//skywalking使用时才用到的配置环境变量，不用时可去掉
       },
-      "applicationUrl": "http://localhost:6666/"
+      "applicationUrl": "http://localhost:7777/"
     },
     "Docker": {
       "commandName": "Docker",

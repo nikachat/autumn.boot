@@ -39,9 +39,9 @@ namespace Autumn.Common
 
                 return Configuration[val.TrimEnd(':')];
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return "";
+                return ex.Message;
             }
 
         }

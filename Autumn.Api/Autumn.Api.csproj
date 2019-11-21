@@ -48,6 +48,7 @@
     <PackageReference Include="PaySharp.Qpay" Version="1.0.7" />
     <PackageReference Include="PaySharp.Unionpay" Version="1.0.7" />
     <PackageReference Include="PaySharp.Wechatpay" Version="1.0.7" />
+    <PackageReference Include="SkyAPM.Agent.AspNetCore" Version="0.9.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
@@ -60,10 +61,6 @@
     <ProjectReference Include="..\Autumn.Repository\Autumn.Repository.csproj" />
     <ProjectReference Include="..\Autumn.Services\Autumn.Services.csproj" />
     <ProjectReference Include="..\Autumn.SignalrChat\Autumn.SignalrChat.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Log\" />
   </ItemGroup>
 
   <ItemGroup>
