@@ -231,7 +231,7 @@ namespace Autumn
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             #endregion
 
-            // configuration (resolvers, counter key builders)
+            // configuration (resolvers, counter key builders) 
             services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
             #region 策略授权
