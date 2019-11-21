@@ -1,0 +1,1000 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Autumn.Boot</name>
+    </assembly>
+    <members>
+        <member name="T:Autumn.AOP.HydCacheAOP">
+            <summary>
+            面向切面的缓存使用
+            </summary>
+        </member>
+        <member name="T:Autumn.AOP.HydLogAOP">
+            <summary>
+            拦截器HydLogAOP 继承IInterceptor接口
+            </summary>
+        </member>
+        <member name="M:Autumn.AOP.HydLogAOP.Intercept(Castle.DynamicProxy.IInvocation)">
+            <summary>
+            实例化IInterceptor唯一方法
+            </summary>
+            <param name="invocation">包含被拦截方法的信息</param>
+        </member>
+        <member name="T:Autumn.AOP.HydRedisCacheAOP">
+            <summary>
+            面向切面的缓存使用
+            </summary>
+        </member>
+        <member name="T:Autumn.Attributes.ModelValidationAttribute">
+            <summary>
+            Model规则有效性验证
+            </summary>
+        </member>
+        <member name="T:Autumn.Api.Attributes.PermissionAttribute">
+            <summary>
+            操作授权许可
+            </summary>
+        </member>
+        <member name="T:Autumn.Api.Controllers.AlipayController">
+            <summary>
+            阿里支付
+            </summary>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.WebPay(System.String,System.String,System.Double,System.String)">
+            <summary>
+            电脑网站支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.WapPay(System.String,System.String,System.Double,System.String)">
+            <summary>
+            手机网站支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.AppPay(System.String,System.String,System.Double,System.String)">
+            <summary>
+            移动支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.ScanPay(System.String,System.String,System.Double,System.String)">
+            <summary>
+            扫码支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.BarcodePay(System.String,System.String,System.String,System.Double,System.String)">
+            <summary>
+            条码支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="auth_code"></param>
+            <param name="subject"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.BarcodePay_PaySucceed(PaySharp.Core.Response.IResponse,System.String)">
+            <summary>
+            支付成功事件
+            </summary>
+            <param name="response">返回结果</param>
+            <param name="message">提示信息</param>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.BarcodePay_PayFaild(PaySharp.Core.Response.IResponse,System.String)">
+            <summary>
+            支付失败事件
+            </summary>
+            <param name="response">返回结果,可能是BarcodePayResponse/QueryResponse</param>
+            <param name="message">提示信息</param>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.Query(System.String,System.String)">
+            <summary>
+            查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.Refund(System.String,System.String,System.Double,System.String,System.String)">
+            <summary>
+            退款
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <param name="refund_amount"></param>
+            <param name="refund_reason"></param>
+            <param name="out_request_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.RefundQuery(System.String,System.String,System.String)">
+            <summary>
+            退款查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <param name="out_request_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.Cancel(System.String,System.String)">
+            <summary>
+            撤销
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.Close(System.String,System.String)">
+            <summary>
+            关闭
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.Transfer(System.String,System.String,System.String,System.Double,System.String)">
+            <summary>
+            转账
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="payee_account"></param>
+            <param name="payee_type"></param>
+            <param name="amount"></param>
+            <param name="remark"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.TransferQuery(System.String,System.String)">
+            <summary>
+            转账查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.AlipayController.BillDownload(System.String,System.String)">
+            <summary>
+            对账单下载
+            </summary>
+            <param name="bill_date"></param>
+            <param name="bill_type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.Api.Controllers.ChatController">
+            <summary>
+            聊天
+            </summary>
+        </member>
+        <member name="M:Autumn.Api.Controllers.ChatController.SendMessageChat(Autumn.Model.UserModel)">
+            <summary>
+            发送消息
+            </summary>
+            <param name="userModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.DemoController.#ctor">
+            <summary>
+            构造
+            </summary>
+        </member>
+        <member name="T:Autumn.Api.Controllers.HealthController">
+            <summary>
+            健康检查
+            </summary>
+        </member>
+        <member name="M:Autumn.Api.Controllers.HealthController.Get">
+            <summary>
+            健康检查
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.Api.Controllers.NotifyController">
+            <summary>
+            通知
+            </summary>
+        </member>
+        <member name="T:Autumn.Api.Controllers.OfficeController">
+            <summary>
+            导入导出
+            </summary>
+        </member>
+        <member name="M:Autumn.Api.Controllers.OfficeController.#ctor(Autumn.IServices.IOfficeService)">
+            <summary>
+            构造
+            </summary>
+            <param name="officeService"></param>
+        </member>
+        <member name="M:Autumn.Api.Controllers.OfficeController.GetExcelExport">
+            <summary>
+            导出Excel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.OfficeController.GetExcelImport">
+            <summary>
+            导入Excel
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.Api.Controllers.SecurityController">
+            <summary>
+            防御跨站请求
+            </summary>
+        </member>
+        <member name="T:Autumn.Api.Controllers.WechatpayController">
+            <summary>
+            微信支付
+            </summary>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.PublicKey">
+            <summary>
+            公钥
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.OAuth(System.String)">
+            <summary>
+            认证
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.PublicPay(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            公众号支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="open_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.AppPay(System.String,System.Int32,System.String)">
+            <summary>
+            移动支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.AppletPay(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            小程序支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="open_id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.WapPay(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            手机网站支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <param name="scene_info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.ScanPay(System.String,System.String,System.Int32)">
+            <summary>
+            扫码支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="body"></param>
+            <param name="total_amount"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.BarcodePay(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            条码支付
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="auth_code"></param>
+            <param name="total_amount"></param>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.BarcodePay_PaySucceed(PaySharp.Core.Response.IResponse,System.String)">
+            <summary>
+            支付成功事件
+            </summary>
+            <param name="response">返回结果</param>
+            <param name="message">提示信息</param>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.BarcodePay_PayFaild(PaySharp.Core.Response.IResponse,System.String)">
+            <summary>
+            支付失败事件
+            </summary>
+            <param name="response">返回结果,可能是BarcodePayResponse/QueryResponse</param>
+            <param name="message">提示信息</param>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.Query(System.String,System.String)">
+            <summary>
+            查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.Refund(System.String,System.String,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            退款
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <param name="total_amount"></param>
+            <param name="refund_amount"></param>
+            <param name="refund_desc"></param>
+            <param name="out_refund_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.RefundQuery(System.String,System.String,System.String,System.String)">
+            <summary>
+            退款查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="trade_no"></param>
+            <param name="out_refund_no"></param>
+            <param name="refund_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.Close(System.String)">
+            <summary>
+            关闭
+            </summary>
+            <param name="out_trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.Cancel(System.String)">
+            <summary>
+            撤销
+            </summary>
+            <param name="out_trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.Transfer(System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            转账
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="openid"></param>
+            <param name="check_name"></param>
+            <param name="true_name"></param>
+            <param name="amount"></param>
+            <param name="desc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.TransferQuery(System.String)">
+            <summary>
+            转账查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.TransferToBank(System.String,System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            转账到银行卡
+            </summary>
+            <param name="out_trade_no"></param>
+            <param name="bank_no"></param>
+            <param name="true_name"></param>
+            <param name="bank_code"></param>
+            <param name="amount"></param>
+            <param name="desc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.TransferToBankQuery(System.String)">
+            <summary>
+            转账到银行卡查询
+            </summary>
+            <param name="out_trade_no"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.BillDownload(System.String,System.String)">
+            <summary>
+            对账单下载
+            </summary>
+            <param name="bill_date"></param>
+            <param name="bill_type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Api.Controllers.WechatpayController.FundFlowDownload(System.String,System.String)">
+            <summary>
+            资金账单下载
+            </summary>
+            <param name="bill_date"></param>
+            <param name="account_type"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.Api.Extension.ConsulManager">
+            <summary>
+            服务治理
+            </summary>
+        </member>
+        <member name="M:Autumn.Api.Extension.ConsulManager.RegisterConsul(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IApplicationLifetime,Autumn.Model.HealthModel,Autumn.Model.ConsulModel)">
+            <summary>
+            服务注册
+            </summary>
+            <param name="app"></param>
+            <param name="lifetime"></param>
+            <param name="healthService"></param>
+            <param name="consulService"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.AuthHelper.Auth.JwtHelper.IssueJwt(Autumn.AuthHelper.Auth.JwtTokenModel)">
+            <summary>
+            颁发JWT字符串
+            </summary>
+            <param name="tokenModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.AuthHelper.Auth.JwtHelper.SerializeJwt(System.String)">
+            <summary>
+            解析
+            </summary>
+            <param name="jwtStr"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.AuthHelper.Auth.JwtTokenModel">
+            <summary>
+            令牌
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.Auth.JwtTokenModel.Uid">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.Auth.JwtTokenModel.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.Auth.JwtTokenModel.Role">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.Auth.JwtTokenModel.Expiration">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="T:Autumn.AuthHelper.JwtTokenAuth">
+            <summary>
+            Token认证
+            </summary>
+        </member>
+        <member name="F:Autumn.AuthHelper.JwtTokenAuth._next">
+            <summary>
+            委托
+            </summary>
+        </member>
+        <member name="M:Autumn.AuthHelper.JwtTokenAuth.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            中间件
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Autumn.AuthHelper.JwtTokenAuth.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Token认证
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Autumn.AuthHelper.JwtTokenAuth.RequestUrl">
+            <summary>
+            路径过滤器
+            字符全部小写
+            </summary>
+        </member>
+        <member name="M:Autumn.AuthHelper.JwtTokenAuth.ResponseUnAuth(Microsoft.AspNetCore.Http.HttpContext,Autumn.Extension.ResponseModel)">
+            <summary>
+            返回
+            </summary>
+            <param name="httpContext"></param>
+            <param name="responseModel"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.AuthHelper.PermissionHandler">
+            <summary>
+            权限授权处理
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionHandler.Schemes">
+            <summary>
+            验证方案提供对象
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionHandler.roleModulePermissionServices">
+            <summary>
+            services 层注入
+            </summary>
+        </member>
+        <member name="M:Autumn.AuthHelper.PermissionHandler.#ctor(Microsoft.AspNetCore.Authentication.IAuthenticationSchemeProvider,Autumn.IServices.IPermissionService)">
+            <summary>
+            构造函数注入
+            </summary>
+            <param name="schemes"></param>
+            <param name="roleModulePermissionServices"></param>
+        </member>
+        <member name="T:Autumn.AuthHelper.PermissionItem">
+            <summary>
+            角色凭据实体
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionItem.RoleId">
+            <summary>
+            角色Id
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionItem.Url">
+            <summary>
+            请求Url
+            </summary>
+        </member>
+        <member name="T:Autumn.AuthHelper.PermissionRequirement">
+            <summary>
+            必要权限
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionRequirement.Permissions">
+            <summary>
+            用户权限集合
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionRequirement.DeniedAction">
+            <summary>
+            无权限action
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionRequirement.ClaimType">
+            <summary>
+            认证授权类型
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionRequirement.LoginPath">
+            <summary>
+            请求路径
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionRequirement.Issuer">
+            <summary>
+            发行人
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionRequirement.Audience">
+            <summary>
+            订阅人
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionRequirement.Expiration">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:Autumn.AuthHelper.PermissionRequirement.SigningCredentials">
+            <summary>
+            签名验证
+            </summary>
+        </member>
+        <member name="M:Autumn.AuthHelper.PermissionRequirement.#ctor(System.String,System.Collections.Generic.List{Autumn.AuthHelper.PermissionItem},System.String,System.String,System.String,Microsoft.IdentityModel.Tokens.SigningCredentials,System.TimeSpan)">
+            <summary>
+            构造
+            </summary>
+            <param name="deniedAction">拒约请求的url</param>
+            <param name="permissions">权限集合</param>
+            <param name="claimType">声明类型</param>
+            <param name="issuer">发行人</param>
+            <param name="audience">订阅人</param>
+            <param name="signingCredentials">签名验证实体</param>
+            <param name="expiration">过期时间</param>
+        </member>
+        <member name="M:Autumn.AutoMapper.UserProfile.#ctor">
+            <summary>
+            配置构造函数，用来创建关系映射
+            </summary>
+        </member>
+        <member name="T:Autumn.Controllers.BaseController">
+            <summary>
+            基类
+            </summary>
+        </member>
+        <member name="T:Autumn.Controllers.EntityController">
+            <summary>
+            自动生成实体
+            </summary>
+        </member>
+        <member name="M:Autumn.Controllers.EntityController.CreateEntity">
+            <summary>
+            生成MYSQL实体类
+            </summary>
+        </member>
+        <member name="T:Autumn.Controllers.UserController">
+            <summary>
+            用户
+            </summary>
+        </member>
+        <member name="M:Autumn.Controllers.UserController.#ctor(Autumn.IServices.IUserService)">
+            <summary>
+            构造
+            </summary>
+            <param name="userServices"></param>
+        </member>
+        <member name="M:Autumn.Controllers.UserController.GetUser(System.Int32,System.String)">
+            <summary>
+            查询
+            </summary>
+            <param name="CurrentPage">当前页码</param>
+            <param name="UserName">用户名</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Controllers.UserController.InsertUser(Autumn.Model.UserModel)">
+            <summary>
+            新增
+            </summary>
+            <param name="userModel">测试</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Controllers.UserController.UpdateUser(Autumn.Model.UserModel)">
+            <summary>
+            修改
+            </summary>
+            <param name="userModel">测试</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            删除
+            </summary>
+            <param name="id">主键</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Controllers.UserController.TransExecuteUser(Autumn.Model.UserModel)">
+            <summary>
+            事务提交
+            </summary>
+            <param name="demoModel">测试</param>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.Controllers.v1.CustomController">
+            <summary>
+            版本V1
+            </summary>
+        </member>
+        <member name="T:Autumn.Controllers.v1.Oauth2Controller">
+            <summary>
+            鉴权认证
+            </summary>
+        </member>
+        <member name="M:Autumn.Controllers.v1.Oauth2Controller.#ctor(Autumn.IServices.IUserService)">
+            <summary>
+            构造
+            </summary>
+            <param name="loginServices"></param>
+        </member>
+        <member name="M:Autumn.Controllers.v1.Oauth2Controller.AccessToken(Autumn.Model.LoginModel)">
+            <summary>
+            登录获取令牌
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Controllers.v1.Oauth2Controller.RefreshToken(System.String)">
+            <summary>
+            刷新令牌
+            </summary>
+            <param name="token">原令牌</param>
+            <returns></returns>
+        </member>
+        <member name="T:Autumn.Controllers.v2.CustomController">
+            <summary>
+            版本V2
+            </summary>
+        </member>
+        <member name="T:Autumn.Extension.Def">
+            <summary>
+            常量定义
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.ApiName">
+            <summary>
+            Api名称
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.NLogConfigName">
+            <summary>
+            日志配置名称
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.HtmlName">
+            <summary>
+            站点全称
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.CorsName">
+            <summary>
+            跨域名称
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.Issuer">
+            <summary>
+            发行人
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.Audience">
+            <summary>
+            订阅人
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.Secret">
+            <summary>
+            密钥
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.CookieFlg">
+            <summary>
+            Cookie是否使用
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.SessionFlg">
+            <summary>
+            Session是否使用
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.RedisCachingFlg">
+            <summary>
+            Redis缓存是否使用
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.RedisCachingUrl">
+            <summary>
+            Redis缓存切片地址
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.MemoryCachingFlg">
+            <summary>
+            系统缓存切片状态
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.LogFlg">
+            <summary>
+            日志切片状态
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.AllowedCrosFlg">
+            <summary>
+            跨域状态
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.AllowedCrosOrigins">
+            <summary>
+            跨域地址
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.RequestResponseMiddleware">
+            <summary>
+            请求响应中间件
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.JwtAuthMiddleware">
+            <summary>
+            Jwt认证中间件
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.JwtAuthMiddleware_Exp">
+            <summary>
+            Jwt认证过期时间（秒）
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.SignalrFlg">
+            <summary>
+            SignalR
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.PaymentGatewayFlg">
+            <summary>
+            PaymentGateway
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.Def.CsrfFlg">
+            <summary>
+            防御跨站请求伪造攻击
+            </summary>
+        </member>
+        <member name="T:Autumn.Extension.ResponseCode">
+            <summary>
+            系统响应
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.ResponseCode.Success">
+            <summary>
+            成功
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.ResponseCode.Error">
+            <summary>
+            失败
+            </summary>
+        </member>
+        <member name="F:Autumn.Extension.ResponseCode.Unknown">
+            <summary>
+            未知
+            </summary>
+        </member>
+        <member name="T:Autumn.Extension.ResponseModel">
+            <summary>
+            通用返回信息
+            </summary>
+        </member>
+        <member name="P:Autumn.Extension.ResponseModel.Version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:Autumn.Extension.ResponseModel.Code">
+            <summary>
+            响应码
+            </summary>
+        </member>
+        <member name="P:Autumn.Extension.ResponseModel.Message">
+            <summary>
+            消息
+            </summary>
+        </member>
+        <member name="P:Autumn.Extension.ResponseModel.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+        <member name="P:Autumn.Extension.ResponseModel.DataCount">
+            <summary>
+            数据总数
+            </summary>
+        </member>
+        <member name="P:Autumn.Extension.ResponseModel.PageCount">
+            <summary>
+            分页总数
+            </summary>
+        </member>
+        <member name="P:Autumn.Extension.ResponseModel.Mac">
+            <summary>
+            校验码
+            </summary>
+        </member>
+        <member name="P:Autumn.Extension.ResponseModel.Timestamp">
+            <summary>
+             时间戳
+            </summary>
+        </member>
+        <member name="T:Autumn.Filters.GlobalExceptionsFilter">
+            <summary>
+            全局异常日志
+            </summary>
+        </member>
+        <member name="T:Autumn.Filters.InternalServerErrorObjectResult">
+            <summary>
+            响应码
+            </summary>
+        </member>
+        <member name="T:Autumn.Filters.JsonErrorResponse">
+            <summary>
+            返回
+            </summary>
+        </member>
+        <member name="P:Autumn.Filters.JsonErrorResponse.Message">
+            <summary>
+            生产环境的消息
+            </summary>
+        </member>
+        <member name="P:Autumn.Filters.JsonErrorResponse.DevelopmentMessage">
+            <summary>
+            开发环境的消息
+            </summary>
+        </member>
+        <member name="T:Autumn.Filters.UserOperationException">
+            <summary>
+            操作日志
+            </summary>
+        </member>
+        <member name="T:Autumn.Middlewares.RequRespLogMiddle">
+            <summary>
+            请求和响应
+            </summary>
+        </member>
+        <member name="F:Autumn.Middlewares.RequRespLogMiddle._next">
+            <summary>
+            委托
+            </summary>
+        </member>
+        <member name="M:Autumn.Middlewares.RequRespLogMiddle.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            中间件
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Autumn.Middlewares.RequRespLogMiddle.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            通道中间件
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Autumn.Middlewares.RequRespLogMiddle.RequestDataLog(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            访问
+            </summary>
+            <param name="request"></param>
+        </member>
+        <member name="M:Autumn.Middlewares.RequRespLogMiddle.ResponseDataLog(Microsoft.AspNetCore.Http.HttpResponse,System.IO.MemoryStream)">
+            <summary>
+            响应
+            </summary>
+            <param name="response"></param>
+            <param name="ms"></param>
+        </member>
+        <member name="T:Autumn.SwaggerHelper.CustomApiVersion">
+            <summary>
+            自定义版本
+            </summary>
+        </member>
+        <member name="T:Autumn.SwaggerHelper.CustomApiVersion.ApiVersions">
+            <summary>
+            Api接口版本 自定义
+            </summary>
+        </member>
+        <member name="F:Autumn.SwaggerHelper.CustomApiVersion.ApiVersions.v1">
+            <summary>
+            V1 版本
+            </summary>
+        </member>
+        <member name="F:Autumn.SwaggerHelper.CustomApiVersion.ApiVersions.v2">
+            <summary>
+            V2 版本
+            </summary>
+        </member>
+        <member name="T:Autumn.SwaggerHelper.CustomRouteAttribute">
+            <summary>
+            自定义路由 /api/{version}/[controler]/[action]
+            </summary>
+        </member>
+        <member name="P:Autumn.SwaggerHelper.CustomRouteAttribute.GroupName">
+            <summary>
+            分组名称,是来实现接口 IApiDescriptionGroupNameProvider
+            </summary>
+        </member>
+        <member name="M:Autumn.SwaggerHelper.CustomRouteAttribute.#ctor(System.String)">
+            <summary>
+            自定义路由构造函数，继承基类路由
+            </summary>
+            <param name="actionName"></param>
+        </member>
+        <member name="M:Autumn.SwaggerHelper.CustomRouteAttribute.#ctor(Autumn.SwaggerHelper.CustomApiVersion.ApiVersions,System.String)">
+            <summary>
+            自定义版本+路由构造函数，继承基类路由
+            </summary>
+            <param name="actionName"></param>
+            <param name="version"></param>
+        </member>
+    </members>
+</doc>

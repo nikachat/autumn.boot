@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autumn.Api", "Autumn.Api\Autumn.Api.csproj", "{6F47A41A-085E-4422-BB73-5A2CBAA07D9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autumn.Boot", "Autumn.Boot\Autumn.Boot.csproj", "{6F47A41A-085E-4422-BB73-5A2CBAA07D9F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autumn.Model", "Autumn.Model\Autumn.Model.csproj", "{E725F0A1-0B03-406F-B84B-0F486C6137FC}"
 EndProject

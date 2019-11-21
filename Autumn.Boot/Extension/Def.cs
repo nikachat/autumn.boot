@@ -11,7 +11,7 @@ namespace Autumn.Extension
         /// <summary>
         /// Api名称
         /// </summary>
-        public const string ApiName = "Autumn.Api";
+        public const string ApiName = "Autumn.Boot";
 
         /// <summary>
         /// 日志配置名称

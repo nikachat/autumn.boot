@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Autumn.Api\Autumn.Api.csproj" />
+    <ProjectReference Include="..\Autumn.Boot\Autumn.Boot.csproj" />
   </ItemGroup>
 
   <ItemGroup>
