@@ -30,7 +30,7 @@ namespace Autumn.Middlewares
         /// </summary>
         /// <param name="context"></param>
         /// <returns></returns>
-        public async Task InvokeAsync(Microsoft.AspNetCore.Http.HttpContext context)
+        public async Task InvokeAsync(HttpContext context)
         {
             // 过滤
             if (context.Request.Path.Value.ToLower().Contains("api"))

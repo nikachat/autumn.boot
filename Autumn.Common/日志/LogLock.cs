@@ -26,7 +26,7 @@ namespace Autumn.Common
                 //因进入与退出写入模式应在同一个try finally语句块内，所以在请求进入写入模式之前不能触发异常，否则释放次数大于请求次数将会触发异常
                 LogWriteLock.EnterWriteLock();
 
-                var path = Directory.GetCurrentDirectory() + @"\Log";
+                var path = Directory.GetCurrentDirectory() + @"\logs";
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
@@ -97,7 +97,7 @@ namespace Autumn.Common
             List<LogInfo> reqresLogs = new List<LogInfo>();
             try
             {
-                aopLogs = ReadLog(Path.Combine(Directory.GetCurrentDirectory(), "Log", "AOPLog.log"), Encoding.UTF8)
+                aopLogs = ReadLog(Path.Combine(Directory.GetCurrentDirectory(), "logs", "AOPLog.log"), Encoding.UTF8)
                 .Split("--------------------------------")
                 .Where(d => !string.IsNullOrEmpty(d) && d != "\n" && d != "\r\n")
                 .Select(d => new LogInfo
@@ -113,7 +113,7 @@ namespace Autumn.Common
 
             try
             {
-                excLogs = ReadLog(Path.Combine(Directory.GetCurrentDirectory(), "Log", $"GlobalExcepLogs_{DateTime.Now.ToString("yyyMMdd")}.log"), Encoding.UTF8)?
+                excLogs = ReadLog(Path.Combine(Directory.GetCurrentDirectory(), "logs", $"GlobalExcepLogs_{DateTime.Now.ToString("yyyMMdd")}.log"), Encoding.UTF8)?
                       .Split("--------------------------------")
                       .Where(d => !string.IsNullOrEmpty(d) && d != "\n" && d != "\r\n")
                       .Select(d => new LogInfo
@@ -130,7 +130,7 @@ namespace Autumn.Common
 
             try
             {
-                sqlLogs = ReadLog(Path.Combine(Directory.GetCurrentDirectory(), "Log", "SqlLog.log"), Encoding.UTF8)
+                sqlLogs = ReadLog(Path.Combine(Directory.GetCurrentDirectory(), "logs", "SqlLog.log"), Encoding.UTF8)
                       .Split("--------------------------------")
                       .Where(d => !string.IsNullOrEmpty(d) && d != "\n" && d != "\r\n")
                       .Select(d => new LogInfo
@@ -146,7 +146,7 @@ namespace Autumn.Common
 
             try
             {
-                reqresLogs = ReadLog(Path.Combine(Directory.GetCurrentDirectory(), "Log", "RequestResponseLog.log"), Encoding.UTF8)
+                reqresLogs = ReadLog(Path.Combine(Directory.GetCurrentDirectory(), "logs", "RequestResponseLog.log"), Encoding.UTF8)
                       .Split("--------------------------------")
                       .Where(d => !string.IsNullOrEmpty(d) && d != "\n" && d != "\r\n")
                       .Select(d => new LogInfo
